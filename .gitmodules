@@ -10,6 +10,3 @@
 [submodule ".local/share/nvim/site/pack/plugins/start/cmp-buffer"]
 	path = .local/share/nvim/site/pack/plugins/start/cmp-buffer
 	url = https://github.com/hrsh7th/cmp-buffer
-[submodule ".local/share/nvim/site/pack/plugins/start/vim-airline"]
-	path = .local/share/nvim/site/pack/plugins/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
