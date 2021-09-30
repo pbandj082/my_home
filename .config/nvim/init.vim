@@ -4,21 +4,22 @@ set number
 set clipboard+=unnamedplus
 " タブは空白に置き換え。
 set expandtab
-" カレントディレクトリのtagsファイルに定義されたタグを参照。
-" set tag=tags
 " 検索文字列が小文字のときは大文字小文字を区別しない、大文字が含まれる場合は区別する。
 set ignorecase
 set smartcase
-" 直近タグジャンプも候補が複数ある場合、選択できるようにする。
-" nmap <C-]> g<C-]>
+
+" カラースキーム
+colorscheme molokai
+
+" python config
 let g:python_host_prog='/usr/bin/python'
 let g:python3_host_prog='/usr/bin/python3'
+
 
 " lsp config
 " sudo npm install -g pyrightなどnpmで言語サーバーを入れる必要がある。
 lua << EOF
 local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -48,6 +49,46 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- nvim_cmp
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+    -- For `vsnip` user.
+    vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+    
+    -- For `luasnip` user.
+    -- require('luasnip').lsp_expand(args.body)
+    
+    -- For `ultisnips` user.
+    -- vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    
+    -- For vsnip user.
+    { name = 'vsnip' },
+    
+    -- For luasnip user.
+    -- { name = 'luasnip' },
+    
+    -- For ultisnips user.
+    -- { name = 'ultisnips' },
+    
+    { name = 'buffer' },
+  }
+})
+
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
@@ -56,8 +97,15 @@ for _, lsp in ipairs(servers) do
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+    -- set nvim_cmp
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
 end
+
+-- lualine
+require('lualine').setup()
+
 EOF
+
 
