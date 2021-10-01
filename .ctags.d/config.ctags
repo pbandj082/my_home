@@ -1,8 +1,0 @@
-# 除外する
---exclude=lib64
-
-# タグを作成する言語
---languages=python
-
---kinds-python=*
-
