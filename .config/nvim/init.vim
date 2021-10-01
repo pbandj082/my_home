@@ -9,10 +9,6 @@ set ignorecase
 set smartcase
 
 
-autocmd BufNewFile,BufRead *.ejs set filetype=html
-autocmd BufNewFile,BufRead *._ejs set filetype=html
-
-
 " カラースキーム
 colorscheme molokai
 
@@ -113,4 +109,8 @@ require('lualine').setup()
 
 EOF
 
+
+" special language
+autocmd BufNewFile,BufRead *.ejs set filetype=html
+autocmd BufNewFile,BufRead *._ejs set filetype=html
 
