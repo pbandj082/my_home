@@ -8,6 +8,11 @@ set expandtab
 set ignorecase
 set smartcase
 
+
+autocmd BufNewFile,BufRead *.ejs set filetype=html
+autocmd BufNewFile,BufRead *._ejs set filetype=html
+
+
 " カラースキーム
 colorscheme molokai
 
