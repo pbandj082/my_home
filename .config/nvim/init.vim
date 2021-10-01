@@ -8,6 +8,9 @@ set expandtab
 set ignorecase
 set smartcase
 
+" 折り畳みはインデントで識別
+set foldmethod=indent
+
 
 " カラースキーム
 colorscheme molokai
