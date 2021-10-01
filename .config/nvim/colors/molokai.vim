@@ -75,7 +75,7 @@ hi PreCondit       guifg=#A6E22E               gui=bold
 hi PreProc         guifg=#A6E22E
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
-hi Search          guifg=#000000 guibg=#FFE792
+hi Search          guifg=#000000 guibg=#000000
 " marks
 hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
@@ -192,7 +192,7 @@ if &t_Co > 255
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=NONE
+   hi Search          ctermfg=0   ctermbg=30   cterm=NONE
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
@@ -219,8 +219,8 @@ if &t_Co > 255
    hi Underlined      ctermfg=244               cterm=underline
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-   " hi VisualNOS                   ctermbg=238
-   " hi Visual                      ctermbg=235
+   hi VisualNOS                   ctermbg=91
+   hi Visual                      ctermbg=91
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
@@ -262,7 +262,7 @@ if &t_Co > 255
        hi Statement       ctermfg=197               cterm=bold
        hi Tag             ctermfg=197
        hi Title           ctermfg=203
-       " hi Visual                      ctermbg=238
+       hi Visual                      ctermbg=91
 
        hi Comment         ctermfg=244
        hi LineNr          ctermfg=239 ctermbg=235
