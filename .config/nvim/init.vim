@@ -1,28 +1,33 @@
-" 行番号を設定。
-set number
-" クリップボードとレジスタを共有。
-set clipboard+=unnamedplus
-" タブは空白に置き換え。
-set expandtab
-" 検索文字列が小文字のときは大文字小文字を区別しない、大文字が含まれる場合は区別する。
-set ignorecase
-set smartcase
+  " vscode extension
+  " 行番号を設定。
+  set number
+  " クリップボードとレジスタを共有。
+  set clipboard+=unnamedplus
+  " タブは空白に置き換え。
+  set expandtab
+  " 検索文字列が小文字のときは大文字小文字を区別しない、大文字が含まれる場合は区別する。
+  set ignorecase
+  set smartcase
 
-" 折り畳みはインデントで識別
-set fdm=indent
-set foldlevelstart=99
+  " 折り畳みはインデントで識別
+  set fdm=indent
+  set foldlevelstart=99
 
+  " special language
+  autocmd BufNewFile,BufRead *.ejs set filetype=html
+  autocmd BufNewFile,BufRead *._ejs set filetype=html
 
-" カラースキーム
-colorscheme molokai
+  " カラースキーム
+  colorscheme molokai
 
-" python config
-let g:python_host_prog='/usr/bin/python'
-let g:python3_host_prog='/usr/bin/python3'
+  " python config
+  let g:python_host_prog='/usr/bin/python'
+  let g:python3_host_prog='/usr/bin/python3'
 
 
 " lsp config
 " sudo npm install -g pyrightなどnpmで言語サーバーを入れる必要がある。
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
@@ -110,11 +115,5 @@ end
 
 -- lualine
 require('lualine').setup()
-
 EOF
-
-
-" special language
-autocmd BufNewFile,BufRead *.ejs set filetype=html
-autocmd BufNewFile,BufRead *._ejs set filetype=html
 
