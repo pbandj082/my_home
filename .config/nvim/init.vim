@@ -9,7 +9,8 @@ set ignorecase
 set smartcase
 
 " 折り畳みはインデントで識別
-set foldmethod=indent
+set fdm=indent
+set foldlevelstart=99
 
 
 " カラースキーム
